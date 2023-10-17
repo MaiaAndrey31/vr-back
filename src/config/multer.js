@@ -6,7 +6,7 @@ import { request } from 'express'
 export default {
     storage: multer.diskStorage({
         destination: resolve(__dirname, '..', '..', 'uploads'),
-        filename: (request: any, file: any, callback: (arg0: null, arg1: any) => void) => {
+        filename: (request, file, callback) => {
         callback(null, v4() + extname(file.originalname))}
     }),
 }

@@ -1,7 +1,7 @@
 import * as Yup from 'yup'
 
 class ProductController {
-    async store(req: { body: any }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { error: any }): any; new(): any } } }) {
+    async store(req, res) {
 
         const schema = Yup.object().shape({
                 id: Yup.number().required(),
@@ -13,7 +13,7 @@ class ProductController {
 
        try{
         await schema.validateSync(req.body, {abortEarly: false})
-       } catch (err: any) {
+       } catch (err) {
         return res.status(400).json({error: err.errors})
        }
 }
